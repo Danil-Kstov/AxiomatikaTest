@@ -1,0 +1,17 @@
+<button mat-raised-button (click)="openAddItemDialog()">{{"ADD" | translate}}</button>
+
+<div class="item-list">
+  <div class="item" *ngFor="let item of items$ | async">
+    <div class="item__top-wrapper">
+      <p class="item__title">{{ item.title }}</p>
+      <p class="item__date">{{"EXECUTION_DATE" | translate}}: {{ item.executionDate }}</p>
+      <p class="item__date">{{"CREATION_DATE" | translate}}: {{ item.createdDate }}</p>
+      <div class="item__actions">
+        <button mat-button (click)="copyItem(item)">{{"COPY" | translate}}</button>
+        <button mat-button (click)="deleteItem(item.id)">{{"DELETE" | translate}}</button>
+      </div>
+    </div>
+    <p *ngIf="item.description" class="item__description">{{ item.description }}</p>
+  </div>
+
+</div>

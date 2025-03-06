@@ -1,0 +1,113 @@
+.filters{
+  display: flex;
+  justify-content: flex-end;
+
+  .filters-list{
+    padding: 25px;
+    border-radius: 40px;
+    background-color: var(--secondary-bg);
+    border: 1px solid #723600;
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+
+    .buttons{
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+    }
+  }
+}
+
+.empty-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-text{
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--secondary-text)
+  }
+}
+
+.item-list{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .top-wrapper, .item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin: 0 100px;
+    padding: 30px 25px;
+    background-color: var(--secondary-bg);
+
+    .first-col{
+      text-align: start;
+    }
+
+    .second-col{
+      text-align: center;
+    }
+
+    .third-col{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative; //
+
+      .menu-btn {
+        margin-left: 10px;
+        padding: 5px;
+        border-radius: 40px;
+        color: var(--accent-text);
+        background: var(--secondary-bg);
+        border: 1px solid #723600;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        background: var(--secondary-bg);
+        border: 1px solid #723600;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        button{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .top-wrapper{
+    border: 2px solid #723600;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--secondary-text);
+  }
+
+  .item{
+    border: 1px solid #723600;
+    border-radius: 40px;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--primary-text);
+    height: 30px;
+  }
+}

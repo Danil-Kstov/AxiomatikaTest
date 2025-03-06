@@ -1,0 +1,10 @@
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mat-sys-primary-container);
+
+  &__content{
+    color: var(--mat-sys-primary)
+  }
+}

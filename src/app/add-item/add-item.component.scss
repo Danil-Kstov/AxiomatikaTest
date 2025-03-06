@@ -1,0 +1,21 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+
+  .title__form{
+    color: var(--accent-text);
+  }
+
+  mat-dialog-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 450px;
+
+    .description{
+      min-height: 100px;
+    }
+  }
+}

@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+//theme
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$violet-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+body.dark-mode {
+  color-scheme: dark;
+  @include mat.theme((
+    color: mat.$cyan-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+//custom variables
+:root {
+  --primary-bg: #d5baff;
+  --secondary-bg: #fef8fc;
+  --primary-text: #ac43d5;;
+  --secondary-text: #9f5ba9;;
+  --accent-text: #7d00fa;
+  --toaster-bg-color: #fce9bb;
+}
+
+body.dark-mode {
+  --primary-bg: #004f4f;
+  --secondary-bg: #101414;
+  --primary-text: #00DDDDE5;
+  --secondary-text: #239d9a;
+  --accent-text: #00dddd;
+  --toaster-bg-color: #fac33c;
+}
+
+//toaster
+:root {
+  @include mat.snack-bar-overrides((
+    container-color: var(--toaster-bg-color),
+    supporting-text-color: var(--accent-text),
+    button-color: var(--accent-text),
+  ));
+}
+
+body.dark-mode {
+  @include mat.snack-bar-overrides((
+    container-color: var(--toaster-bg-color),
+    supporting-text-color: var(--secondary-bg),
+    button-color: var(--secondary-bg),
+  ));
+}
+
+

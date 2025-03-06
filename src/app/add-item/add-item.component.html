@@ -1,0 +1,44 @@
+<div class="form">
+  <h2 mat-dialog-title>
+    <span class="title__form  ">{{ "ADD" | translate }}</span>
+  </h2>
+
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>{{ "Title" | translate}}</mat-label>
+      <input matInput
+             [formControl]="titleControl"
+      />
+      <mat-error *ngIf="titleControl.invalid">
+        {{getErrorTitleMessage()}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "EXECUTION_DATE" | translate}}</mat-label>
+      <input
+        matInput
+        [formControl]="executionDateControl"
+        type="datetime-local"
+        [min]="executionDateMinString"
+        [max]="executionDateMaxString"
+      />
+      <mat-error *ngIf="executionDateControl.invalid">
+        {{getErrorDateMessage()}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "DESC" | translate }}</mat-label>
+      <textarea class="description" matInput [(ngModel)]="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "CREATION_DATE" | translate }}</mat-label>
+      <input matInput [value]="createdDate.toLocaleString()" disabled>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">{{ "CANCEL" | translate }}</button>
+    <button mat-button (click)="onSubmit()">{{ "SAVE" | translate }}</button>
+  </mat-dialog-actions>
+</div>
+

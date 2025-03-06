@@ -1,0 +1,16 @@
+<header class="header">
+  <mat-toolbar color="primary">
+    <a mat-button
+       routerLink="/view"
+       routerLinkActive="active">{{"VIEW" | translate}}</a>
+    <a mat-button
+       routerLink="/editor"
+       routerLinkActive="active">{{"EDITOR" | translate}}</a>
+    <span class="spacer"></span>
+    <button class="translate" *ngIf="lang === 'ru'" mat-button (click)="switchLanguage('en')">EN</button>
+    <button class="translate" *ngIf="lang === 'en'" mat-button (click)="switchLanguage('ru')">RU</button>
+    <mat-slide-toggle [checked]="isDarkMode" (change)="toggleDarkMode()">
+      <span class="slider-text">{{ "NIGHT_MODE" | translate }}</span>
+    </mat-slide-toggle>
+  </mat-toolbar>
+</header>

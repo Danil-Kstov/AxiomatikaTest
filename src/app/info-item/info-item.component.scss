@@ -1,0 +1,27 @@
+.info-card {
+  width: 400px;
+  padding: 15px;
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+
+  mat-card-header {
+    background: var(--secondary-text);
+    color: var(--secondary-bg);
+    padding: 10px;
+    border-radius: 5px;
+
+    mat-card-subtitle{
+      color: var(--secondary-bg);
+    }
+  }
+
+  mat-card-content {
+    padding: 15px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+}

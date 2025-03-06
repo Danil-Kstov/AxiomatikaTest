@@ -1,0 +1,48 @@
+<div class="filters">
+  <button mat-raised-button *ngIf=(!openFilteredMenu) (click)="toggleFiltersMenu()">{{"FILTER" | translate}}</button>
+  <div class="filters-list" *ngIf="openFilteredMenu">
+    <mat-form-field appearance="outline">
+      <mat-label>{{"TITLE" | translate}}</mat-label>
+      <input matInput [(ngModel)]="searchTerm">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{"EXECUTION_DATE_FROM" | translate}}</mat-label>
+      <input matInput type="date" [(ngModel)]="dateFrom">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{"EXECUTION_DATE_TO" | translate}}</mat-label>
+      <input matInput type="date" [(ngModel)]="dateTo">
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-raised-button color="primary" (click)="toggleFiltersMenu()">{{"CLOSE" | translate}}</button>
+      <button mat-raised-button color="primary" (click)="applyFilters()">{{"APPLY" | translate}}</button>
+    </div>
+  </div>
+</div>
+
+<div class="item-list">
+  <div class="top-wrapper">
+    <span class="first-col">{{"TITLE" | translate}}</span>
+    <span class="second-col">{{"CREATION_DATE" | translate}}</span>
+    <span class="third-col">{{"EXECUTION_DATE" | translate}}</span>
+  </div>
+  <div class="empty-list" *ngIf="(filteredItems$ | async)?.length === 0">
+    <p class="empty-list-text">{{"TASKS_NOT_FOUND" | translate}}</p>
+  </div>
+  <div class="item" *ngFor="let item of filteredItems$ | async; let i = index;"
+       (click)="openInfoItemComponent(item)">
+    <span class="first-col">{{ item.title }}</span>
+    <span class="second-col">{{ item.createdDate }}</span>
+    <div class="third-col">
+      {{ item.executionDate }}
+      <button (click)="toggleMenu(i, $event)" class="menu-btn">⋮</button>
+      <div *ngIf="openMenuIndex === i" class="dropdown-menu">
+        <button mat-button (click)="moveUp(i, $event)" [disabled]="i === 0">{{"MOVE_UP" | translate}}</button>
+        <button mat-button (click)="moveDown(i, $event)" [disabled]="length - 1 === i">{{"MOVE_DOWN" | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
