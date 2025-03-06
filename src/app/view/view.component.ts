@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BehaviorSubject, combineLatest, interval, map, Observable, startWith, Subscription} from 'rxjs';
+import {BehaviorSubject, interval, Observable, Subscription} from 'rxjs';
 import {Item} from '../../types/types';
 import {ItemService} from '../services/items.service';
 import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
@@ -8,7 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {InfoItemComponent} from '../info-item/info-item.component';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {isAfter, isBefore, parse} from 'date-fns';
+import {isBefore, parse} from 'date-fns';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
